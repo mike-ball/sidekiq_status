@@ -259,8 +259,7 @@ module SidekiqStatus
 
     # @return [Integer] Job progress in percents (reported solely by {SidekiqStatus::Worker job})
     def pct_complete
-      return 100 if total == 0
-      (at.to_f / total * 100).round
+      (at.to_f / total * 100).round rescue 0
     end
 
     # @param [Fixnum] at Report the progress of a job which is tracked by the current {SidekiqStatus::Container}
