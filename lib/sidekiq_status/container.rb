@@ -183,6 +183,7 @@ module SidekiqStatus
     # @param [String] jid
     # @param [Hash] data
     def initialize(jid, data = {})
+      data = {} if data.nil? # in case a nil value gets passed as data
       @jid = jid
       load(data)
     end
